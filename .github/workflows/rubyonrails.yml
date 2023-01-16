@@ -18,6 +18,13 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          
+      - name: Setup Database 
+        run: rails db:{drop,create,migrate,seed}
       
       - name: RSpec
         run: bundle exec rspec
+        
+      - name: Lint
+        run: rubocop -a
+
