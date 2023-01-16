@@ -28,6 +28,10 @@ jobs:
         uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4 # v1.127.0
         with:
           bundler-cache: true
+      - name: regenerate binstubs
+        run: |
+          gem install executable-hooks -v ">=1.3.2" 
+          gem regenerate_binstubs
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
