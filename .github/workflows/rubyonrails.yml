@@ -37,5 +37,7 @@ jobs:
         run: bin/rails db:schema:load
       - name: Run tests
         run: bundle exec rspec
-      - name: Run RuboCop
-        run: bundle exec rubocop --parallel
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v2
+        with:
+          rubocop_version: gemfile
