@@ -45,4 +45,4 @@ jobs:
         with:
           bundler-cache: true
       - name: Lint Ruby files
-        run: rubocop -a
+        run: bundle exec rubocop -a
